@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:52:44 by spariaud          #+#    #+#             */
-/*   Updated: 2014/12/31 11:52:48 by spariaud         ###   ########.fr       */
+/*   Created: 2014/12/28 22:11:50 by spariaud          #+#    #+#             */
+/*   Updated: 2014/12/28 22:16:09 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+int		ft_isspace(int c)
 {
-	if (c > 31 && c < 127)
+	if (c == '\t' || c == '\n' || c == '\v')
 		return (1);
-	return (0);
+	else if (c == '\f' || c == '\r' || c == ' ')
+		return (1);
+	else
+		return (0);
 }

@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_chinspace.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spariaud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 16:32:58 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/12 20:02:09 by spariaud         ###   ########.fr       */
+/*   Created: 2015/02/25 14:37:17 by spariaud          #+#    #+#             */
+/*   Updated: 2015/02/25 15:00:53 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_chinspace(char *str)
 {
-	int		len_s;
+	char	*ret;
+	int		i;
 
-	len_s = ft_strlen(s);
-	if (c < 0)
+	i = 0;
+	if (!(ret = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1))))
 		return (NULL);
-	while (len_s >= 0)
+	while (str[i])
 	{
-		if (s[len_s] == c)
-			return ((char *)&s[len_s]);
-		len_s--;
+		if (ft_isspace(str[i]))
+			str[i] = ' ';
+		ret[i] = str[i];
+		i++;
 	}
-	if (s[len_s] == c)
-		return ((char *)&s[len_s]);
-	else
-		return (NULL);
+	ret[i] = '\0';
+	return (ret);
 }

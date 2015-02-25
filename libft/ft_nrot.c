@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_nrot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:52:44 by spariaud          #+#    #+#             */
-/*   Updated: 2014/12/31 11:52:48 by spariaud         ###   ########.fr       */
+/*   Created: 2014/12/29 00:31:15 by spariaud          #+#    #+#             */
+/*   Updated: 2014/12/29 02:10:19 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+char	*ft_nrot(char *str, int n)
 {
-	if (c > 31 && c < 127)
-		return (1);
-	return (0);
+	int		i;
+
+	i = 0;
+	n = n % 26;
+	while (str[i])
+	{
+		if (ft_isalpha(str[i]) && ft_islower(str[i]))
+		{
+			if (ft_isalpha(str[i] + n))
+				str[i] += n;
+			else
+				str[i] = 'a';
+		}
+		else if (ft_isalpha(str[i]))
+		{
+			if (ft_isalpha(str[i] + n))
+				str[i] += n;
+			else
+				str[i] = 'A';
+		}
+		i++;
+	}
+	return (str);
 }

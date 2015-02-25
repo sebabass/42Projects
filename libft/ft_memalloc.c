@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 22:12:38 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/07 22:29:38 by spariaud         ###   ########.fr       */
+/*   Updated: 2014/11/12 15:19:48 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void	*mem;
+	void			*mem;
+	char			*tmp;
+	unsigned int	i;
 
-	if (size <= 0)
-		return (NULL);
-	mem = (void *)malloc(sizeof(mem) * size);
+	mem = malloc(size);
+	tmp = (char *)mem;
 	if (mem)
 	{
-		mem = 0;
-		return (mem);
+		while (i < size)
+		{
+			*tmp++ = 0;
+			i++;
+		}
 	}
-	return (NULL);
+	return (mem);
 }

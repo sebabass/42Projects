@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 04:56:07 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/07 23:21:10 by spariaud         ###   ########.fr       */
+/*   Updated: 2014/11/22 02:40:25 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,17 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		i;
 
 	i = 0;
-	if (s)
+	if (s && f)
 	{
-		if (f)
+		if (!(str_mapi = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+			return (NULL);
+		while (s[i] != '\0')
 		{
-			str_mapi = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-			while (s[i] != '\0')
-			{
-				str_mapi[i] = f(i, s[i]);
-				i++;
-			}
-			str_mapi[i] = '\0';
-			return (str_mapi);
+			str_mapi[i] = f(i, s[i]);
+			i++;
 		}
-		return (NULL);
+		str_mapi[i] = '\0';
+		return (str_mapi);
 	}
 	return (NULL);
 }

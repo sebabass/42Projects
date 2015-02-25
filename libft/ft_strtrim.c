@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 11:44:21 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/09 04:26:47 by spariaud         ###   ########.fr       */
+/*   Updated: 2014/11/29 03:14:55 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@
 
 static	int	is_whitespace(int c)
 {
-	if (c == ' ')
-		return (1);
-	if (c == '\n')
-		return (1);
-	if (c == '\t')
+	if (c == ' ' || c == '\n' || c == '\t')
 		return (1);
 	return (0);
 }
@@ -71,8 +67,13 @@ char		*ft_strtrim(char const *s)
 	trim = (char *)malloc(sizeof(trim) * (i + 1));
 	if (trim)
 	{
-		trim = ft_strsub(s, start, i);
-		return (trim);
+		if (i <= 0)
+			return (ft_strcpy(trim, ""));
+		else
+		{
+			trim = ft_strsub(s, start, i);
+			return (trim);
+		}
 	}
 	return (NULL);
 }

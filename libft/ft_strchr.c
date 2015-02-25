@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 16:18:02 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/07 06:26:46 by spariaud         ###   ########.fr       */
+/*   Updated: 2014/11/12 19:37:01 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ char	*ft_strchr(const char *s, int c)
 	int		i;
 
 	i = 0;
-	if (c <= 0)
-		return (NULL);
-	if (!s)
+	if (c < 0)
 		return (NULL);
 	while (s[i] != '\0')
 	{
@@ -28,5 +26,8 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	return (NULL);
+	if (s[i] == c)
+		return ((char *)&s[i]);
+	else
+		return (NULL);
 }

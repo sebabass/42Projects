@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 10:48:46 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/07 23:20:27 by spariaud         ###   ########.fr       */
+/*   Updated: 2014/12/28 20:47:37 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,19 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
-	int		size;
 
 	i = 0;
-	size = start + len;
 	if (!s)
 		return (NULL);
-	sub = (char *)malloc(sizeof(char) * (size + 1));
-	if (sub)
+	if ((sub = ft_strnew(len + 1)))
 	{
-		while (i < len)
+		while (i < len && s[start])
 		{
 			sub[i] = s[start];
 			start++;
 			i++;
 		}
-		sub[i] = '\0';
-		return (sub);
+		return (ft_strdup(sub));
 	}
 	return (NULL);
 }

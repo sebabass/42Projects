@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:52:44 by spariaud          #+#    #+#             */
-/*   Updated: 2014/12/31 11:52:48 by spariaud         ###   ########.fr       */
+/*   Created: 2014/11/29 11:14:35 by spariaud          #+#    #+#             */
+/*   Updated: 2014/11/29 11:27:24 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-int		ft_isprint(int c)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	if (c > 31 && c < 127)
-		return (1);
-	return (0);
+	if (alst && del)
+	{
+		while (*alst)
+		{
+			if ((*alst)->content)
+				del((*alst)->content, (*alst)->content_size);
+			*alst = (*alst)->next;
+		}
+		ft_memdel((void **)alst);
+	}
 }

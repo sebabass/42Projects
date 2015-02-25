@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 19:54:09 by spariaud          #+#    #+#             */
-/*   Updated: 2014/12/28 20:09:10 by spariaud         ###   ########.fr       */
+/*   Created: 2014/11/29 05:07:17 by spariaud          #+#    #+#             */
+/*   Updated: 2014/11/29 06:17:34 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t	i;
-	size_t	len_dst;
-	size_t	len_src;
+	t_list	*new;
+	void	*cont;
 
-	i = 0;
-	len_dst = ft_strlen(dst);
-	len_src = ft_strlen(src);
-	if (len_dst >= size)
-		return (len_src + size);
-	if (!size)
-		return (len_dst + len_src);
-	while ((len_dst + i) < size - 1)
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	if (!(cont = (void *)malloc(content_size)))
+		return (NULL);
+	if (!content)
 	{
-		dst[len_dst + i] = src[i];
-		i++;
+		new->content = NULL;
+		new->content_size = 0;
 	}
-	dst[len_dst + i] = '\0';
-	return (len_dst + len_src);
+	else
+	{
+		cont = ft_memcpy(cont, content, content_size);
+		new->content = cont;
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
 }

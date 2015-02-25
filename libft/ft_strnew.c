@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 16:17:43 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/06 17:22:46 by spariaud         ###   ########.fr       */
+/*   Updated: 2014/11/21 18:26:26 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,8 @@
 char	*ft_strnew(size_t size)
 {
 	char	*str;
-	size_t	i;
 
-	str = (char *)malloc(sizeof(str) * (size + 1));
-	i = 0;
-	if (!str)
-		return (NULL);
-	while (i < size)
-	{
-		str[i] = '\0';
-		i++;
-	}
-	str[i] = '\0';
+	str = ft_memalloc(size);
+	ft_strclr(str);
 	return (str);
 }

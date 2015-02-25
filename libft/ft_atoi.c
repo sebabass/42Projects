@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 14:37:54 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/09 02:05:01 by spariaud         ###   ########.fr       */
+/*   Updated: 2014/11/12 16:43:38 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static	int	c_echap(int c)
 {
 	if (c == ' ')
 		return (1);
-	else if (!ft_isprint(c))
+	else if (c == '\n' || c == '\t' || c == '\r' || c == '\v' || c == '\f')
 		return (1);
 	else
 		return (0);

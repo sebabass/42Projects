@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:52:44 by spariaud          #+#    #+#             */
-/*   Updated: 2014/12/31 11:52:48 by spariaud         ###   ########.fr       */
+/*   Created: 2015/01/29 01:54:56 by spariaud          #+#    #+#             */
+/*   Updated: 2015/01/29 02:04:16 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+int		ft_isnumber(char *str)
 {
-	if (c > 31 && c < 127)
-		return (1);
-	return (0);
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if ((i == 0 && (str[i] == '-' || str[i] == '+')) || ft_isdigit(str[i]))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }

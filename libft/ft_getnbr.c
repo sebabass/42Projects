@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_getnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/04 10:52:44 by spariaud          #+#    #+#             */
-/*   Updated: 2014/12/31 11:52:48 by spariaud         ###   ########.fr       */
+/*   Created: 2014/11/27 06:28:04 by spariaud          #+#    #+#             */
+/*   Updated: 2014/11/27 06:46:35 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+int		ft_getnbr(char *str)
 {
-	if (c > 31 && c < 127)
-		return (1);
-	return (0);
+	int		ret;
+
+	if (*str == '-')
+		return (-ft_getnbr(str + 1));
+	if (*str == '+')
+		return (ft_getnbr(str + 1));
+	ret = 0;
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		ret *= 10;
+		ret = ret + *str - '0';
+		str++;
+	}
+	return (ret);
 }
