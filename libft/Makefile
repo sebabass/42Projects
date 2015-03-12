@@ -6,7 +6,7 @@
 #    By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 17:05:54 by spariaud          #+#    #+#              #
-#    Updated: 2015/02/25 15:02:52 by spariaud         ###   ########.fr        #
+#    Updated: 2015/03/12 01:39:36 by spariaud         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -62,6 +62,9 @@ SRCS =		ft_memset.c \
 			ft_strtrim.c \
 			ft_strsplit.c \
 			ft_itoa.c \
+			ft_itoa_base.c \
+			ft_ltoa_base.c \
+			ft_uitoa_base.c \
 			ft_putchar.c \
 			ft_putstr.c \
 			ft_putendl.c \

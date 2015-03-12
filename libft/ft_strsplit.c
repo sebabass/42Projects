@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 13:40:22 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/09 01:57:28 by spariaud         ###   ########.fr       */
+/*   Updated: 2015/03/12 00:10:52 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char		**ft_strsplit(char const *s, char c)
 			else
 				i++;
 		}
-		tab[j] = '\0';
+		tab[j] = "\0";
 		return (tab);
 	}
 	return (NULL);

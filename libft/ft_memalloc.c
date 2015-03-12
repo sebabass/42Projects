@@ -6,7 +6,7 @@
 /*   By: spariaud <spariaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 22:12:38 by spariaud          #+#    #+#             */
-/*   Updated: 2014/11/12 15:19:48 by spariaud         ###   ########.fr       */
+/*   Updated: 2015/03/12 00:10:31 by spariaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	*ft_memalloc(size_t size)
 	char			*tmp;
 	unsigned int	i;
 
+	i = 0;
 	mem = malloc(size);
 	tmp = (char *)mem;
 	if (mem)
