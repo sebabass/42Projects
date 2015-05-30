@@ -14,10 +14,10 @@ section .text
 	global _ft_memset
 
 _ft_memset:
-	mov 	rbx, rdi			; On stock dans un pointeur l'arg1
+	mov 	rbx, rdi
 	mov 	rax, rsi
-	mov 	rcx, rdx			; On stock l'arg3 dans un compteur
-	rep 	stosb				; On repete l'operation.
-	mov 	rax, rbx			; On ret notre pointeur
+	mov 	rcx, rdx
+	rep 	stosb
+	mov 	rax, rbx
 	ret
 	
