@@ -47,5 +47,5 @@ void					init_player(t_env *e)
 	e->player.plane.x = 0;
 	e->player.plane.y = 0.66;
 	if (e->player.pos.x <= -1 || e->player.pos.y <= -1)
-		error_exit("wolf3d : Position unknown player or disabled person");
+		error_exit("wolf3d : Position unknown");
 }
