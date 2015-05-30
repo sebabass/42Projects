@@ -18,17 +18,17 @@ section .text
 	global _ft_cat
 	
 _ft_cat:
-	mov		rax, 0x2000003			; appel read
+	mov		rax, 0x2000003
     lea		rsi, [rel buffer]
     mov		rdx, BUFSIZE
     syscall
     jc		return
-    cmp		rax, 0					; Si retourne 0 
+    cmp		rax, 0
     je		return
     push	rdi
-    mov		rdi, 1					; On ecrit sur l'entree standart
+    mov		rdi, 1
     mov		rdx, rax
-    mov		rax, 0x2000004			; appel de write
+    mov		rax, 0x2000004
     syscall
     jc		return
     pop		rdi
