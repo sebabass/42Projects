@@ -14,8 +14,8 @@ section .text
 	global _ft_isalpha
 
 _ft_isalpha:
-	cmp		rdi, 65				; On verifie si l'arg de ft_isalpha est plus
-	jl		ko					; petit que 65, si oui on jump sur ko  
+	cmp		rdi, 65
+	jl		ko
 	cmp		rdi, 91
 	jl		ok			
 	cmp		rdi, 97
