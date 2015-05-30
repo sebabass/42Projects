@@ -15,15 +15,15 @@ section .text
 
 _ft_strcat:
 	cmp		rdi, 0
-	jle		empty				; On jump sur empty
-	mov		rbx, rsi			; On stock notre 2eme arg dans un pointeur
-	push	rdi					; On push rdi sur la stack
+	jle		empty
+	mov		rbx, rsi
+	push	rdi
 
 loop_rdi:
-	cmp		byte[rdi], 0		; On compare byte de rdi a 0
-	je		loop_rbx			; si egale on jump sur loop_rbx
-	inc		rdi					; Sinon on incremente notre chaine
-	jmp		loop_rdi			; et on jump sur loop_rdi
+	cmp		byte[rdi], 0
+	je		loop_rbx
+	inc		rdi
+	jmp		loop_rdi
 
 loop_rbx:
 	cmp		byte[rbx], 0
