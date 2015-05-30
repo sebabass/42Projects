@@ -15,15 +15,15 @@ section .text
 
 _ft_bzero:
 	cmp		rdi, 0
-	je		end					; alors on jump sur end
-	jmp		end_loop			; Sinon on jump sur end_loop.
+	je		end
+	jmp		end_loop
 	begin_loop:
-	mov		[rdi], byte 0		; On met notre byte 0
-	inc		rdi					; puis on incremente notre chaine
-	dec		rsi					; et on decremente n
+	mov		[rdi], byte 0
+	inc		rdi
+	dec		rsi
 	end_loop:
-	cmp		rsi, 0				; Si n est different de  0
-	jne		begin_loop			; On jump sur begin_loop
+	cmp		rsi, 0
+	jne		begin_loop
 	ret
 
 end:
