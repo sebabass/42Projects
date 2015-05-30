@@ -19,27 +19,27 @@ section	.data
 	extern _ft_strlen
 
 _ft_puts:
-	push	rbp					; Pointeur de base
-	mov		rbp, rsp			; rsp pointeur de la pile
+	push	rbp
+	mov		rbp, rsp
 	cmp		rdi, 0
-	jz		error				; jz si egal a zero
+	jz		error
 	push	rdi
 	call	_ft_strlen
-	mov		rdx, rax			; Retour de ft_strlen en 3eme arg de write
+	mov		rdx, rax
 	pop		rsi
-	mov		rdi, 2				; sortie arg1 de write
-	mov		rax, 0x2000004		; appel de write
+	mov		rdi, 2
+	mov		rax, 0x2000004
 	syscall
 	mov		rax, 0x2000004
 	mov		rdx, 1
-	lea		rsi, [rel string + 6] ; ajout du '\n'
+	lea		rsi, [rel string + 6]
 	mov		rdi, 2
 	syscall
-	mov		rax, 10				; retour de write
-	leave						; libere la pile
+	mov		rax, 10
+	leave
 	ret
 
-error:							; affichage de null
+error:
 	mov		rax, 0x2000004
 	mov		rdx, string.len
 	lea		rsi, [rel string]
