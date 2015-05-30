@@ -19,16 +19,16 @@ _ft_strchr:
 	cmp		rax, 0
 	je		notfound
 	mov		rcx, rax
-	mov		al, sil				; prend les 8 premier bit de rsi
-	cld							; clear direction flag
+	mov		al, sil
+	cld
 	repne	scasb
 	je		found
 
-notfound:						; si il trouve pas le caractere
+notfound:
 	mov		rax, 0
 	ret
 
-found:							; si il trouve le caractere
+found:
 	dec		rdi
 	mov		rax, rdi
 	ret
