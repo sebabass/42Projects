@@ -21,7 +21,7 @@ _ft_toupper:
 	jmp		end
 
 ok:
-	sub		rdi, 32				; On soustrait 32
+	sub		rdi, 32
 	mov		rax, rdi
 	ret
 
