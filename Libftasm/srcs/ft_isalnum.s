@@ -17,8 +17,8 @@ section .text
 
 _ft_isalnum:
 	call	_ft_isdigit
-	cmp		rax, 1				; Si le retour de ft_isdigit
-	je		end					; On jump sur end
+	cmp		rax, 1
+	je		end
 	call	_ft_isalpha
 
 end:
