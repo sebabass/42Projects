@@ -17,9 +17,9 @@ _ft_strlen:
 	push	rdi
 	mov		rcx, 0
 	mov		al, 0
-	not		rcx					; inverse rcx 0 devient -1
-	repne	scasb				; On repete tant que different de al
-	not		rcx					; inverse rcx -x devient x
+	not		rcx
+	repne	scasb
+	not		rcx
 	dec		rcx
 	pop		rdi
 	
