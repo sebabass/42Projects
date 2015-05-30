@@ -21,7 +21,7 @@ _ft_tolower:
 	jmp		end
 
 ok:
-	add		rdi, 32				; On ajoute 32
+	add		rdi, 32
 	mov		rax, rdi
 	ret
 
